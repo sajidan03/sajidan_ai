@@ -1,28 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
-    android:layout_gravity="center"
-    android:gravity="center"
-    android:orientation="vertical">
-
-    <EditText
-        android:id="@+id/et_prompt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Masukkan prompt" />
-
-    <Button
-        android:id="@+id/btn_generate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Kirim ke LLaMA" />
-
+    android:layout_margin="30dp"
+    android:layout_height="match_parent">
     <TextView
-        android:id="@+id/tv_output"
+        android:text="Sajidan AI"
+        android:textSize="22dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:id="@+id/label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/label"
+        android:layout_above="@+id/input_container"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tv_output"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Jawaban akan muncul di sini" />
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/input_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="16dp"
-        android:text="Jawaban akan muncul di sini" />
-</LinearLayout>
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_prompt"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_corner"
+            android:hint="Masukkan prompt"
+            android:textSize="15dp"
+            android:padding="10dp"
+            android:layout_marginEnd="8dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_generate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:textColor="@color/white"
+            android:background="@drawable/rounded_corner"
+            android:text="Kirim"
+            android:textAllCaps="false"/>
+    </LinearLayout>
+
+</RelativeLayout>
