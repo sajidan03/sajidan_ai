@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         generateButton.isEnabled = false
 
         val request = LlamaRequest(prompt = prompt)
-        RetrofitClient.instance.generateResponse(request).enqueue(object : Callback<LlamaResponse> {
+        AiClient.instance.generateResponse(request).enqueue(object : Callback<LlamaResponse> {
             override fun onResponse(call: Call<LlamaResponse>, response: Response<LlamaResponse>) {
                 generateButton.isEnabled = true
                 val jawaban = response.body()?.response ?: "Tidak ada jawaban"
