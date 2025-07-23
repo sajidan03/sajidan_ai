@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.ScrollView
 import android.widget.TextView
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
@@ -55,12 +56,13 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                TODO("Not yet implemented")
+
             }
         })
         icon.setOnClickListener {
             startActivity(Intent(this@MainActivity, AccountActivity::class.java))
         }
+
     }
 
     private fun generateFromLlama(prompt: String) {

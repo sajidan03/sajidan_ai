@@ -4,26 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_margin="30dp"
+    android:layout_margin="36dp"
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:gravity="center"
+    android:foregroundGravity="center"
     tools:context=".LoginActivity">
     <LinearLayout
+        android:layout_gravity="center"
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="match_parent">
         <TextView
-            android:layout_width="160dp"
+            android:layout_width="wrap_content"
             android:textSize="24dp"
             android:textStyle="bold"
-            android:textColor="@color/black"
+            android:textColor="#008080"
+            android:text="Sajidan AI"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="#808080"
             android:text="Sign in to your Account"
             android:layout_height="wrap_content"/>
         <TextView
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
-            android:text="Enter your email and password to log in"
+            android:text="Enter your username and password to log in"
             android:layout_height="wrap_content"/>
         <LinearLayout
             android:layout_marginTop="40dp"
@@ -67,7 +76,7 @@
         <TextView
             android:layout_marginTop="20dp"
             android:textStyle="bold"
-            android:textColor="@android:color/holo_blue_dark"
+            android:textColor="#008080"
             android:layout_width="wrap_content"
             android:text="Forgot password?"
             android:layout_gravity="end"
@@ -80,7 +89,7 @@
             android:textAllCaps="false"
             android:background="@drawable/corner"
             android:textColor="@color/white"
-            android:backgroundTint="@android:color/holo_blue_dark"
+            android:backgroundTint="#008080"
             android:layout_height="wrap_content"/>
         <LinearLayout
             android:layout_width="match_parent"
@@ -144,12 +153,12 @@
             android:padding="12dp"
             android:gravity="center"
             android:clickable="true"
-            android:backgroundTint="@color/biruFb"
+            android:backgroundTint="#1877F2"
             android:focusable="true">
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/facebook" />
+                android:src="@drawable/fb" />
 
             <TextView
                 android:textStyle="normal"
@@ -174,7 +183,7 @@
                 android:layout_width="wrap_content"
                 android:text="Daftar disini"
                 android:textStyle="bold"
-                android:textColor="@android:color/holo_blue_dark"
+                android:textColor="#008080"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
     </LinearLayout>

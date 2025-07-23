@@ -1,10 +1,13 @@
 package com.example.jidan_ai
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import retrofit2.Call
@@ -44,5 +47,10 @@ class AccountActivity : AppCompatActivity() {
 
             }
         })
+        val logout = findViewById<Button>(R.id.logout)
+        logout.setOnClickListener {
+            startActivity(Intent(applicationContext, LoginActivity::class.java))
+            finish()
+        }
     }
 }
