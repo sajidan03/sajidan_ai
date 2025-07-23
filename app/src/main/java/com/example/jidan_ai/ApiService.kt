@@ -4,6 +4,7 @@ import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.POST
 
@@ -17,4 +18,8 @@ interface ApiService {
     fun login(
         @Body request: LoginRequest
     ): Call<LoginResponse>
+
+    @Headers("Content-type: application/json")
+    @GET("/api/profile")
+    fun account(): Call<LoginResponse>
 }

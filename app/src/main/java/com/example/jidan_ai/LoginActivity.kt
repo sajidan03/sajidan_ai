@@ -26,13 +26,13 @@ class LoginActivity : AppCompatActivity() {
         }
         val username = findViewById<EditText>(R.id.username)
         val password = findViewById<EditText>(R.id.password)
-        val token = SessionManager.getToken(applicationContext)
+        val token = SessionManager.getToken(applicationContext).toString()
         val login = findViewById<AppCompatButton>(R.id.login)
         login.setOnClickListener {
             val user = username.text.toString().trim()
             val pass = password.text.toString().trim()
             val loginRequest = LoginRequest(user, pass)
-            ApiClient.getInstance(applicationContext, token.toString()).login(loginRequest).enqueue(
+            ApiClient.getInstance(applicationContext, token).login(loginRequest).enqueue(
                 object : Callback<LoginResponse> {
                     override fun onResponse(
                         call: Call<LoginResponse>,
@@ -44,7 +44,10 @@ class LoginActivity : AppCompatActivity() {
 
                         if (response.isSuccessful){
                             Log.d("Error login", "$response")
-                            SessionManager.putToken(applicationContext, token.toString())
+                            val loginResponse = response.body()
+                            val newToken = loginResponse?.token ?: ""
+                            SessionManager.putToken(applicationContext, newToken)
+                            Log.d("Response token", newToken)
                             Toast.makeText(applicationContext, "Login berhasil", Toast.LENGTH_SHORT).show()
                             startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                         }
